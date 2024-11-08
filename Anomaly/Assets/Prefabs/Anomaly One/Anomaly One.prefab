@@ -6166,7 +6166,7 @@ GameObject:
   - component: {fileID: 7400851244991780042}
   - component: {fileID: 1763190724275827210}
   m_Layer: 0
-  m_Name: Monster One
+  m_Name: Anomaly One
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

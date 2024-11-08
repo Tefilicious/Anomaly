@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7170229027489598233, guid: adf5e8a35d5730b41bec79f5ddae8874, type: 3}
       propertyPath: m_Name
-      value: Monster One
+      value: Anomaly One
       objectReference: {fileID: 0}
     - target: {fileID: 7318731860526153363, guid: adf5e8a35d5730b41bec79f5ddae8874, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1287,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 9.673, y: -45.395, z: -10.62}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -186.4932, y: 23.760096}
+  m_AnchoredPosition: {x: -186.4932, y: 23.760101}
   m_SizeDelta: {x: -755.4293, y: -286.7593}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1673344823
