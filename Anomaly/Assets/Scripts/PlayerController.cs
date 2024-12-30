@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject camHolder;
-    public float speed, sensitivity, maxForce, jumpForce;
+    public float speed,sprintSpeed, sensitivity, maxForce, jumpForce;
     private Vector2 move, look;
     private float lookRotation;
     public bool grounded;
+    private bool isSprinting;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -27,6 +28,12 @@ public class PlayerController : MonoBehaviour
     {
         Jump();
 
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        isSprinting = context.ReadValueAsButton();
+       
     }
 
 
@@ -54,7 +61,7 @@ public class PlayerController : MonoBehaviour
         //Find target velocity
         Vector3 currentVelocity = rb.velocity;
         Vector3 targetVelocity = new Vector3(move.x, 0, move.y);
-        targetVelocity *= speed;
+        targetVelocity *= isSprinting ? sprintSpeed:speed;
 
         //Align direction
         targetVelocity = transform.TransformDirection(targetVelocity);
