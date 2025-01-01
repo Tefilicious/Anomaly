@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 interface IInteractable
 {
-    public void Interact(Text textDisplay);
+    public void Interact(Collider collider);
+}
+
+interface IDisplayText
+{
+    public void DisplayText(Text textDisplay);
 }
 
 public class Interactor : MonoBehaviour
@@ -28,12 +33,13 @@ public class Interactor : MonoBehaviour
         // C# is pass by value thats why the out keyword REMEMBER DAT
         if (Physics.Raycast(ray, out RaycastHit hitInfo, interactRange))
         {
-            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
+            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj) && (hitInfo.collider.gameObject.TryGetComponent(out IDisplayText displayObj)))
             {
                 handUI.SetActive(true);
+                displayObj.DisplayText(textDescription);
                 if (Input.GetButtonDown("Interact"))
                 {
-                    interactObj.Interact(textDescription);
+                    interactObj.Interact(hitInfo.collider);
                 }
             }
             else 
