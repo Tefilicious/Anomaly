@@ -13,8 +13,9 @@ public class HoverAnimation : MonoBehaviour
     }
 
     // Trigger animation when the mouse starts hovering over the GameObject
-    private void OnMouseEnter()
+    private void OnMouseOver()
     {
+        Debug.Log("Female Character");
         if (animator != null)
         {
             animator.SetBool("IsHovering", true);
@@ -24,6 +25,7 @@ public class HoverAnimation : MonoBehaviour
     // Stop the animation when the mouse stops hovering over the GameObject
     private void OnMouseExit()
     {
+        Debug.Log("Mouse Exit Female");
         if (animator != null)
         {
             animator.SetBool("IsHovering", false);
