@@ -5605,6 +5605,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 922245fabfa2e804e99fa80f41008335, type: 3}
       insertIndex: -1
       addedObject: {fileID: 844629382}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 922245fabfa2e804e99fa80f41008335, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 844629385}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 922245fabfa2e804e99fa80f41008335, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 844629384}
   m_SourcePrefab: {fileID: 100100000, guid: 922245fabfa2e804e99fa80f41008335, type: 3}
 --- !u!1 &844629379 stripped
 GameObject:
@@ -5621,7 +5627,7 @@ Animator:
   m_GameObject: {fileID: 844629379}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 643037ad705591a40accdb7c6d084c86, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5632,6 +5638,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &844629384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844629379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1793707a269e3424cb2cd9e5a7b91256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &844629385
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 844629379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.024782978, y: 0.020448826, z: 0.039669156}
+  m_Center: {x: -0.0015716613, y: -0.010356406, z: 0.0043713176}
 --- !u!95 &864240411
 Animator:
   serializedVersion: 5
