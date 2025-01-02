@@ -1724,6 +1724,75 @@ Transform:
   - {fileID: 284192494}
   m_Father: {fileID: 1828671205}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -181.028}
+--- !u!1001 &402997996
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 32.412926
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 32.412926
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 32.412926
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -127.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 94.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 77.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3663953602039168788, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4148706754072339886, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
+      propertyPath: m_Name
+      value: (Msh)OldDustyBookshelf 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 050eb56481baab044adeedf19bb2aff2, type: 3}
 --- !u!1001 &435702474
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9164,3 +9233,4 @@ SceneRoots:
   - {fileID: 1697022727}
   - {fileID: 1206016045}
   - {fileID: 1450657545}
+  - {fileID: 402997996}
