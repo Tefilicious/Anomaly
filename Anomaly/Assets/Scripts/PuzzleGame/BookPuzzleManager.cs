@@ -8,6 +8,8 @@ public class BookPuzzleManager : MonoBehaviour
     public string[] correctSequence = { "F", "S", "D", "A", "G" }; // Correct order
     private List<string> playerSequence = new List<string>(); // Tracks player's selections
     public GameObject messageUI; // UI element to show messages
+    public TextMeshProUGUI roundCounterText; // UI text to show remaining rounds
+    private int remainingRounds = 5; // Total rounds allowed
 
     void Start()
     {
@@ -16,6 +18,7 @@ public class BookPuzzleManager : MonoBehaviour
         {
             messageUI.SetActive(false); // Hide message UI at the start
         }
+        UpdateRoundCounter(); // Display initial round count
     }
 
     public void BookSelected(string bookName)
@@ -36,9 +39,20 @@ public class BookPuzzleManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Wrong Combination!");
-                ShowMessage("Try again, the Anomaly will find you!");
-                Invoke(nameof(ResetPuzzle), 2f); // Wait 2 seconds before resetting
+                remainingRounds--; // Decrement the round counter
+                UpdateRoundCounter(); // Update the UI
+                if (remainingRounds > 0)
+                {
+                    Debug.Log("Wrong Combination!");
+                    ShowMessage("Try again, the Anomaly will find you!");
+                    Invoke(nameof(ResetPuzzle), 2f); // Wait 2 seconds before resetting
+                }
+                else
+                {
+                    Debug.Log("Game Over!");
+                    ShowMessage("Game Over! The Anomaly got you!");
+                    // Add game over logic here, e.g., reload scene or show main menu
+                }
             }
         }
     }
@@ -88,6 +102,18 @@ public class BookPuzzleManager : MonoBehaviour
         if (messageUI != null)
         {
             messageUI.SetActive(false);
+        }
+    }
+
+    private void UpdateRoundCounter()
+    {
+        if (roundCounterText != null)
+        {
+            roundCounterText.text = $"Rounds left: {remainingRounds}";
+        }
+        else
+        {
+            Debug.LogError("roundCounterText is not assigned in the Inspector!");
         }
     }
 }
