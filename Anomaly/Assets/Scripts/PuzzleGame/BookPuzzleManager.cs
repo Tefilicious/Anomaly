@@ -14,6 +14,7 @@ public class BookPuzzleManager : MonoBehaviour
     private int remainingRounds = 5; // Total rounds allowed
     public GameObject keyObject; // The key object in the scene
     public GameObject continueButton; // UI Button to continue
+    public GameObject HideBookKeys; // Parent GameObject containing the book key texts
 
     void Start()
     {
@@ -35,7 +36,7 @@ public class BookPuzzleManager : MonoBehaviour
             {
                 Debug.Log("Correct Combination!");
                 ShowMessage("You solved the puzzle!");
-                // Add logic to unlock the door or proceed to the next stage
+                HideBookKeys.SetActive(false); // Hide book key texts
                 HandleWin(); // Handle winning logic
             }
             else
@@ -150,5 +151,7 @@ public class BookPuzzleManager : MonoBehaviour
     {
         SceneManager.LoadScene("LivingRoomSceneV2"); // Ensure the scene name matches
     }
+
+   
 
 }
