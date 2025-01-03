@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DigitalLockManager : MonoBehaviour
+public class UpdateLock : MonoBehaviour
 {
     public Text[] inputSlots; // Array to store the 7 textboxes
     public Text resultDisplay; // Text to display "SUCCESS" or "ERROR"
@@ -15,6 +15,8 @@ public class DigitalLockManager : MonoBehaviour
         if (enteredCode.Length < inputSlots.Length) // Limit to the number of slots
         {
             enteredCode += digit;
+            Debug.Log("Button pressed: " + digit);
+
             UpdateInputDisplay();
         }
     }
