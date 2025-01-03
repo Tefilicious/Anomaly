@@ -852,8 +852,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1082,7 +1082,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661972358}
-  - component: {fileID: 661972357}
+  - component: {fileID: 661972359}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -1090,7 +1090,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &661972357
+--- !u!4 &661972358
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661972356}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 192.9647, y: 228.92183, z: -42.86405}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661972359
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1111,21 +1126,6 @@ MonoBehaviour:
   - {fileID: 208782149}
   - {fileID: 2127993114}
   resultDisplay: {fileID: 1444582215}
---- !u!4 &661972358
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661972356}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 192.9647, y: 228.92183, z: -42.86405}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684064205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,8 +1209,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1342,8 +1342,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1428,7 +1428,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21217544, y: 0.20483531}
   m_AnchorMax: {x: 0.38829476, y: 0.34300002}
-  m_AnchoredPosition: {x: -1.0000458, y: 0}
+  m_AnchoredPosition: {x: -1.0000305, y: 0}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &697725366
@@ -1475,8 +1475,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1561,7 +1561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21217544, y: 0.5268054}
   m_AnchorMax: {x: 0.36888072, y: 0.665}
-  m_AnchoredPosition: {x: 4.5001984, y: -1}
+  m_AnchoredPosition: {x: 4.5001526, y: -1}
   m_SizeDelta: {x: 11, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729195315
@@ -1608,8 +1608,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -1815,7 +1815,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0.5, y: 1}
-  m_SizeDelta: {x: 11, y: 0}
+  m_SizeDelta: {x: -13, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &878243142
 MonoBehaviour:
@@ -1891,7 +1891,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21217544, y: 0.045}
   m_AnchorMax: {x: 0.38829476, y: 0.18365675}
-  m_AnchoredPosition: {x: 1.0000763, y: -2}
+  m_AnchoredPosition: {x: 1.0000916, y: -1.9999695}
   m_SizeDelta: {x: -2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919626340
@@ -1938,8 +1938,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: CheckCode
         m_Mode: 1
         m_Arguments:
@@ -2182,7 +2182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.40776494, y: 0.045}
   m_AnchorMax: {x: 0.57588774, y: 0.18365675}
-  m_AnchoredPosition: {x: 0.5, y: -2}
+  m_AnchoredPosition: {x: 0.5, y: -1.9999695}
   m_SizeDelta: {x: 2, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108210481
@@ -2229,8 +2229,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -2520,8 +2520,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -3001,7 +3001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21217544, y: 0.35637304}
   m_AnchorMax: {x: 0.38829476, y: 0.510627}
-  m_AnchoredPosition: {x: -1.0000458, y: 0.000015258789}
+  m_AnchoredPosition: {x: -1.0000305, y: 0.000015258789}
   m_SizeDelta: {x: 0, y: -8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1676207479
@@ -3048,8 +3048,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -3213,7 +3213,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5971755, y: 0.045}
   m_AnchorMax: {x: 0.77011573, y: 0.18365675}
-  m_AnchoredPosition: {x: 0.5, y: -2}
+  m_AnchoredPosition: {x: 0.5, y: -1.9999695}
   m_SizeDelta: {x: -1, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1800210065
@@ -3260,8 +3260,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: Backspace
         m_Mode: 1
         m_Arguments:
@@ -3472,8 +3472,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
@@ -3605,8 +3605,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 661972357}
-        m_TargetAssemblyTypeName: DigitalLockManager, Assembly-CSharp
+      - m_Target: {fileID: 661972359}
+        m_TargetAssemblyTypeName: UpdateLock, Assembly-CSharp
         m_MethodName: AddDigit
         m_Mode: 5
         m_Arguments:
