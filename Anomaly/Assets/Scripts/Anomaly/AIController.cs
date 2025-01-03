@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Playables;
 
 public class AIController : MonoBehaviour
 {
     [HideInInspector] public GameObject player;
     [HideInInspector] public NavMeshAgent agent;
+    [HideInInspector] public PlayableDirector playableDirector;
+    [HideInInspector] public GameObject anomalyOne;
+    [HideInInspector] public GameObject anomalyClone;
+    [HideInInspector] public GameObject jCam;
     public float pathUpdateDelay = 5f;
     public float lookSpeed = 0.2f;
     public float runDistance = 350.0f;
@@ -18,6 +23,8 @@ public class AIController : MonoBehaviour
     void Start()
     {
         anomalyAnim = GetComponent<Animator>();
+        anomalyClone.SetActive(false);
+        jCam.SetActive(false);
     }
 
     // Update is called once per frame
@@ -61,12 +68,17 @@ public class AIController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<PlayerController>(out _))
+        if (other.gameObject.TryGetComponent<PlayerController>(out PlayerController player))
         {
-            Debug.Log("Game Over");
-            anomalyAnim.SetBool("GameOver", true);
-            agent.isStopped = true;
             gameOver = true;
+            player.gameObject.SetActive(false);
+            Debug.Log("Game Over");
+            anomalyClone.SetActive(true);
+            jCam.SetActive(true);
+            anomalyOne.SetActive(false);
+            playableDirector.Play();
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
