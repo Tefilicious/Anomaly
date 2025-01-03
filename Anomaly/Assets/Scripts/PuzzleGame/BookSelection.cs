@@ -7,14 +7,17 @@ public class BookSelection : MonoBehaviour
     public Material glowMaterial; // Glow material
     private Material originalMaterial; // Original material
     private Renderer bookRenderer;
-     public string bookName; // Unique name for the book (e.g., A, S, D, F, G)
+    public string bookName; // Unique name for the book (e.g., A, S, D, F, G)
     private BookPuzzleManager puzzleManager;
+    public AudioSource audioSource; // Reference to the AudioSource
+
 
     void Start()
     {
         bookRenderer = GetComponent<Renderer>();
         originalMaterial = bookRenderer.material; // Store the original material
         puzzleManager = FindObjectOfType<BookPuzzleManager>();
+        audioSource = GetComponent<AudioSource>(); 
     }
 
     void OnMouseDown() // Trigger when the book is clicked
@@ -28,6 +31,7 @@ public class BookSelection : MonoBehaviour
         StopAllCoroutines(); // Stop any ongoing glow effect
         StartCoroutine(FadeGlowEffect());
         Debug.Log($"Book {bookName} selected!");
+        audioSource.Play();
     }
 
     private IEnumerator FadeGlowEffect()
