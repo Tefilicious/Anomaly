@@ -8,11 +8,11 @@ public class AIController : MonoBehaviour
     [HideInInspector] public GameObject player;
     [HideInInspector] public NavMeshAgent agent;
     public float pathUpdateDelay = 5f;
-    private float pathUpdateDeadline;
     public float lookSpeed = 0.2f;
     public float runDistance = 350.0f;
     private Animator anomalyAnim;
     private bool gameOver;
+    private float pathUpdateDeadline;
 
     // Start is called before the first frame update
     void Start()
