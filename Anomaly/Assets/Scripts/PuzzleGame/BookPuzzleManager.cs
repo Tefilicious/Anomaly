@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class BookPuzzleManager : MonoBehaviour
 {
@@ -10,14 +12,12 @@ public class BookPuzzleManager : MonoBehaviour
     public GameObject messageUI; // UI element to show messages
     public TextMeshProUGUI roundCounterText; // UI text to show remaining rounds
     private int remainingRounds = 5; // Total rounds allowed
+    public GameObject keyObject; // The key object in the scene
+    public GameObject continueButton; // UI Button to continue
 
     void Start()
     {
         ResetPuzzle(); // Initialize the puzzle
-        if (messageUI != null)
-        {
-            messageUI.SetActive(false); // Hide message UI at the start
-        }
         UpdateRoundCounter(); // Display initial round count
     }
 
@@ -36,6 +36,7 @@ public class BookPuzzleManager : MonoBehaviour
                 Debug.Log("Correct Combination!");
                 ShowMessage("You solved the puzzle!");
                 // Add logic to unlock the door or proceed to the next stage
+                HandleWin(); // Handle winning logic
             }
             else
             {
@@ -44,13 +45,14 @@ public class BookPuzzleManager : MonoBehaviour
                 if (remainingRounds > 0)
                 {
                     Debug.Log("Wrong Combination!");
-                    ShowMessage("Try again, the Anomaly will find you!");
-                    Invoke(nameof(ResetPuzzle), 2f); // Wait 2 seconds before resetting
+                    ShowMessage("Wrong Combination. Try again!");
+                    Invoke(nameof(HideMessage), 2f); // Hide after 2 seconds
+                    Invoke(nameof(ResetPuzzle), 0f); // Wait 2 seconds before resetting
                 }
                 else
                 {
                     Debug.Log("Game Over!");
-                    ShowMessage("Game Over! The Anomaly got you!");
+                    ShowMessage("You lose! Try again");
                     // Add game over logic here, e.g., reload scene or show main menu
                 }
             }
@@ -63,12 +65,40 @@ public class BookPuzzleManager : MonoBehaviour
         {
             if (playerSequence[i] != correctSequence[i])
             {
-                Debug.Log($"Incorrect sequence at position {i}: Expected {correctSequence[i]}, Got {playerSequence[i]}");
+                Debug.Log("Incorrect sequence");
                 return false;
             }
         }
         return true;
     }
+
+        private void HandleWin()
+    {
+         // Activate the key object
+        if (keyObject != null)
+        {
+            keyObject.SetActive(true);
+        }
+        else
+        {
+            Debug.LogError("Key object is not assigned in the Inspector!");
+        }
+
+
+        // Delay showing the message and button
+        Invoke(nameof(ShowWinUI), 4f);
+    }
+
+    private void ShowWinUI()
+    {
+        ShowMessage("You got the KEY!"); // Show winning message
+        if (continueButton != null)
+        {
+            continueButton.SetActive(true); // Show the continue button
+        }
+    }
+
+
 
     private void ResetPuzzle()
     {
@@ -94,7 +124,6 @@ public class BookPuzzleManager : MonoBehaviour
         Debug.Log($"Showing Message: {text}");
         messageUI.SetActive(true);
         textComponent.text = text; // Set the message text
-        Invoke(nameof(HideMessage), 2f); // Hide the message after 2 seconds
     }
 
     private void HideMessage()
@@ -116,4 +145,10 @@ public class BookPuzzleManager : MonoBehaviour
             Debug.LogError("roundCounterText is not assigned in the Inspector!");
         }
     }
+
+     public void LoadLivingRoomScene()
+    {
+        SceneManager.LoadScene("LivingRoomSceneV2"); // Ensure the scene name matches
+    }
+
 }
