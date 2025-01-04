@@ -18,6 +18,8 @@ public class BookPuzzleManager : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true; //Make sure to show the mouse cursor.
+        Cursor.lockState = CursorLockMode.None; //Make sure the cursor is not locked to the center.
         ResetPuzzle(); // Initialize the puzzle
         UpdateRoundCounter(); // Display initial round count
     }

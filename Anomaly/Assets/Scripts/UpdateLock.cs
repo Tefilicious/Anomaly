@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
-public class UpdateLock : MonoBehaviour
+public class UpdateLock : MonoBehaviour, IInteractable
 {
+    public PlayerController player;
+    public NavMeshAgent anomaly;
+    public GameObject keypadUI;
     public Text[] inputSlots; // Array to store the 7 textboxes
     public Text resultDisplay; // Text to display "SUCCESS" or "ERROR"
     private string enteredCode = ""; // Stores the code entered by the user
     private string correctCode = "1906516"; // The correct code
+
+    private void Start()
+    {
+        keypadUI.SetActive(false);
+    }
 
     public void AddDigit(string digit)
     {
@@ -57,6 +66,24 @@ public class UpdateLock : MonoBehaviour
         {
             inputSlots[i].text = enteredCode[i].ToString();
         }
+    }
+
+    public void Interact(Collider collider)
+    {
+        anomaly.isStopped = true;
+        keypadUI.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        player.enabled = false;
+    }
+
+    public void ExitButton()
+    {
+        keypadUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        player.enabled = true;
+        anomaly.isStopped = false;
     }
 }
 
