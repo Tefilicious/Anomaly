@@ -3,26 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.Audio;
 
 public class UpdateLock : MonoBehaviour, IInteractable
 {
+    public AudioClip[] sounds;
     public PlayerController player;
     public NavMeshAgent anomaly;
     public GameObject keypadUI;
-    public Text[] inputSlots; // Array to store the 7 textboxes
+    public Text[] inputSlots; // Array to store the 7 
     public Text resultDisplay; // Text to display "SUCCESS" or "ERROR"
     private string enteredCode = ""; // Stores the code entered by the user
     private string correctCode = "1906516"; // The correct code
+    private AudioSource keypadSound;
 
     private void Start()
     {
         keypadUI.SetActive(false);
+        keypadSound = GetComponent<AudioSource>();
     }
 
     public void AddDigit(string digit)
     {
         if (enteredCode.Length < inputSlots.Length) // Limit to the number of slots
         {
+            keypadSound.PlayOneShot(sounds[0]);
+
             enteredCode += digit;
             Debug.Log("Button pressed: " + digit);
 
@@ -34,6 +40,8 @@ public class UpdateLock : MonoBehaviour, IInteractable
     {
         if (enteredCode.Length > 0)
         {
+            keypadSound.PlayOneShot(sounds[0]);
+
             enteredCode = enteredCode.Substring(0, enteredCode.Length - 1);
             UpdateInputDisplay();
         }
@@ -43,11 +51,13 @@ public class UpdateLock : MonoBehaviour, IInteractable
     {
         if (enteredCode == correctCode)
         {
+            keypadSound.PlayOneShot(sounds[2]);
             resultDisplay.text = "SUCCESS";
             resultDisplay.color = Color.green;
         }
         else
         {
+            keypadSound.PlayOneShot(sounds[1]);
             resultDisplay.text = "ERROR";
             resultDisplay.color = Color.red;
         }
