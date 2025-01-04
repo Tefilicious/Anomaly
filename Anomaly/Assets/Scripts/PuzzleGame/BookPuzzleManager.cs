@@ -75,9 +75,9 @@ public class BookPuzzleManager : MonoBehaviour
         return true;
     }
 
-        private void HandleWin()
+    private void HandleWin()
     {
-         // Activate the key object
+        // Activate the key object
         if (keyObject != null)
         {
             keyObject.SetActive(true);
@@ -86,15 +86,14 @@ public class BookPuzzleManager : MonoBehaviour
         {
             Debug.LogError("Key object is not assigned in the Inspector!");
         }
-
-
+        
         // Delay showing the message and button
         Invoke(nameof(ShowWinUI), 4f);
     }
 
     private void ShowWinUI()
     {
-        ShowMessage("You got the KEY!"); // Show winning message
+        ShowMessage("You Found the KEY!"); // Show winning message
         if (continueButton != null)
         {
             continueButton.SetActive(true); // Show the continue button
@@ -147,6 +146,13 @@ public class BookPuzzleManager : MonoBehaviour
         {
             Debug.LogError("roundCounterText is not assigned in the Inspector!");
         }
+    }
+
+    public void SavePuzzleSolvedState()
+    {
+        // Save the puzzle solved state
+        PlayerPrefs.SetInt("PuzzleSolved", 1); // Mark puzzle as solved
+        PlayerPrefs.Save(); // Ensure the data is saved
     }
 
      public void LoadLivingRoomScene()
