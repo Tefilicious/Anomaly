@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 move, look;
     private float lookRotation;
     public bool grounded;
-    private bool isSprinting;
+    public bool isSprinting;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     public void OnSprint(InputAction.CallbackContext context)
     {
         isSprinting = context.ReadValueAsButton();
-       
+
     }
 
 

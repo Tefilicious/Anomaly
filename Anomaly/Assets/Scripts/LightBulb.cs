@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LightBulb : MonoBehaviour
 {
+    public AudioClip flickerSound;
+    private AudioSource audioSource;
     private Animator lightBulb;
     private float startDelay = 5.0f;
     private float repeatRate = 5.0f;
@@ -11,6 +13,7 @@ public class LightBulb : MonoBehaviour
     void Start()
     {
         lightBulb = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         InvokeRepeating("FlickerLight", startDelay, repeatRate);
     }
 
@@ -23,5 +26,6 @@ public class LightBulb : MonoBehaviour
     private void FlickerLight()
     {
         lightBulb.Play("Flicker");
+        audioSource.PlayOneShot(flickerSound);
     }
 }

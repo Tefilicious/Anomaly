@@ -12,6 +12,7 @@ public class AIController : MonoBehaviour
     [HideInInspector] public GameObject anomalyOne;
     [HideInInspector] public GameObject anomalyClone;
     [HideInInspector] public GameObject jCam;
+    [HideInInspector] public GameObject anomalyEffects;
     public float pathUpdateDelay = 5f;
     public float lookSpeed = 0.2f;
     public float runDistance = 350.0f;
@@ -25,6 +26,7 @@ public class AIController : MonoBehaviour
         anomalyAnim = GetComponent<Animator>();
         anomalyClone.SetActive(false);
         jCam.SetActive(false);
+        anomalyEffects.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,10 +38,12 @@ public class AIController : MonoBehaviour
         {
             anomalyAnim.SetFloat("Speed", 1);
             agent.velocity = agent.desiredVelocity * 2;
+            anomalyEffects.SetActive(true);
         } else
         {
             anomalyAnim.SetFloat("Speed", 0);
             agent.velocity = agent.desiredVelocity;
+            anomalyEffects.SetActive(false);
         }
         UpdatePath();
         LookAtTarget();
