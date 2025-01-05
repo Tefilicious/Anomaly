@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OpenDrawer : MonoBehaviour, IInteractable
 {
+    [SerializeField] private AudioClip drawerSound;
+    private AudioSource audioSource;
     private Animator drawerAnim;
     private bool isOpen;
 
@@ -11,6 +13,7 @@ public class OpenDrawer : MonoBehaviour, IInteractable
     void Start()
     {
         drawerAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,10 +26,12 @@ public class OpenDrawer : MonoBehaviour, IInteractable
     {
         if (!isOpen)
         {
+            audioSource.PlayOneShot(drawerSound);
             drawerAnim.SetBool("OpenDrawer", true);
             isOpen = true;
         } else
         {
+            audioSource.PlayOneShot(drawerSound);
             drawerAnim.SetBool("OpenDrawer", false);
             isOpen = false;
         }
