@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fridge : MonoBehaviour, IInteractable
 {
+    [SerializeField] private AudioClip fridgeSound;
+    private AudioSource audioSource;
     private Animator fridgeAnim;
     public bool isOpen;
 
@@ -11,6 +13,7 @@ public class Fridge : MonoBehaviour, IInteractable
     void Start()
     {
         fridgeAnim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -28,6 +31,7 @@ public class Fridge : MonoBehaviour, IInteractable
         {
             CloseFridge();
         }
+        audioSource.PlayOneShot(fridgeSound);
     }
 
     void OpenFridge()

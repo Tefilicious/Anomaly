@@ -6,9 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PuzzleGameScene.unity
-    guid: 439dfe57a361031488667241e050e651
+    path: Assets/Scenes/MainScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelection.unity
+    guid: 1ef420829e7134a428c71ad4f7269859
+  - enabled: 1
+    path: Assets/Scenes/BedroomScene.unity
+    guid: 0915fdfdb02d57040aeec71fea111f41
+  - enabled: 1
+    path: Assets/Scenes/KitchenScene.unity
+    guid: 77f34671552eeaa4da82ded47352fbe1
   - enabled: 1
     path: Assets/Scenes/LivingRoomSceneV2.unity
     guid: 62e68b072ae365b4498488766221d65f
+  - enabled: 1
+    path: Assets/Scenes/PuzzleGameScene.unity
+    guid: 439dfe57a361031488667241e050e651
+  - enabled: 1
+    path: Assets/Scenes/HallwayScene.unity
+    guid: 2cdcfa9094603884ea409f732734ff67
   m_configObjects: {}

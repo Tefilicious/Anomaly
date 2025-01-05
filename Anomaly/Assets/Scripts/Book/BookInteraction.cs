@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class BookInteraction : MonoBehaviour, IInteractable
 {
+    public AudioClip bookSound;
     public GameObject bookUI;
     public GameObject player;
+
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         bookUI.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,6 +25,7 @@ public class BookInteraction : MonoBehaviour, IInteractable
 
     public void Interact(Collider collider)
     {
+        audioSource.PlayOneShot(bookSound);
         bookUI.SetActive(true);
         player.GetComponent<PlayerController>().enabled = false;
         Cursor.visible = true;
@@ -28,7 +34,7 @@ public class BookInteraction : MonoBehaviour, IInteractable
 
     public void ExitButton()
     {
-        Debug.Log("Button is being pressed");
+        audioSource.PlayOneShot(bookSound);
         bookUI.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

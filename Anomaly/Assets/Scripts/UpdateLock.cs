@@ -16,6 +16,7 @@ public class UpdateLock : MonoBehaviour, IInteractable
     private string enteredCode = ""; // Stores the code entered by the user
     private string correctCode = "1906516"; // The correct code
     private AudioSource keypadSound;
+    public static bool isCodeCorrect;
 
     private void Start()
     {
@@ -51,6 +52,7 @@ public class UpdateLock : MonoBehaviour, IInteractable
     {
         if (enteredCode == correctCode)
         {
+            isCodeCorrect = true;
             keypadSound.PlayOneShot(sounds[2]);
             resultDisplay.text = "SUCCESS";
             resultDisplay.color = Color.green;

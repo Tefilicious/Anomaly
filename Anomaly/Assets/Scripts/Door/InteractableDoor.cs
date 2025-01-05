@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractableDoor : MonoBehaviour, IInteractable
 {
+    public AudioClip doorSound;
+    private AudioSource audioSource;
     private GameObject door;
     private Animator doorAnim;
     private bool isOpen;
@@ -13,6 +15,7 @@ public class InteractableDoor : MonoBehaviour, IInteractable
     {
         door = GameObject.FindGameObjectWithTag("Door");
         doorAnim = door.GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,10 +29,12 @@ public class InteractableDoor : MonoBehaviour, IInteractable
         
         if (!isOpen)
         {
+            audioSource.PlayOneShot(doorSound);
             doorAnim.SetBool("OpenDoor", true);
             isOpen = true;
         } else
         {
+            audioSource.PlayOneShot(doorSound);
             doorAnim.SetBool("OpenDoor", false);
             isOpen = false;
         }

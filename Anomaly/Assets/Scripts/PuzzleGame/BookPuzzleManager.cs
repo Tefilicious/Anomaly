@@ -15,6 +15,7 @@ public class BookPuzzleManager : MonoBehaviour
     public GameObject keyObject; // The key object in the scene
     public GameObject continueButton; // UI Button to continue
     public GameObject HideBookKeys; // Parent GameObject containing the book key texts
+    public static bool isPuzzleSolved;
 
     void Start()
     {
@@ -40,6 +41,7 @@ public class BookPuzzleManager : MonoBehaviour
                 ShowMessage("You solved the puzzle!");
                 HideBookKeys.SetActive(false); // Hide book key texts
                 HandleWin(); // Handle winning logic
+                isPuzzleSolved = true;
             }
             else
             {

@@ -603,9 +603,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 812562562}
+      - m_Target: {fileID: 812562560}
         m_TargetAssemblyTypeName: BookPuzzleManager, Assembly-CSharp
-        m_MethodName: SavePuzzleSolvedState
+        m_MethodName: LoadLivingRoomScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -615,7 +615,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 812562562}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BookPuzzleManager, Assembly-CSharp
         m_MethodName: LoadLivingRoomScene
         m_Mode: 1
@@ -1429,6 +1429,7 @@ MonoBehaviour:
   keyObject: {fileID: 553364448}
   continueButton: {fileID: 486830726}
   HideBookKeys: {fileID: 288077429}
+  isPuzzleSolved: 0
 --- !u!4 &812562561
 Transform:
   m_ObjectHideFlags: 0
@@ -1463,11 +1464,12 @@ MonoBehaviour:
   - D
   - A
   - G
-  messageUI: {fileID: 0}
-  roundCounterText: {fileID: 0}
-  keyObject: {fileID: 0}
-  continueButton: {fileID: 0}
-  HideBookKeys: {fileID: 0}
+  messageUI: {fileID: 1574096339}
+  roundCounterText: {fileID: 1607217498}
+  keyObject: {fileID: 553364448}
+  continueButton: {fileID: 486830726}
+  HideBookKeys: {fileID: 288077429}
+  isPuzzleSolved: 0
 --- !u!1 &828367653
 GameObject:
   m_ObjectHideFlags: 0
