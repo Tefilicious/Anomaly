@@ -17,6 +17,8 @@ public class KeyAppearManager : MonoBehaviour
     }
 
     private bool puzzleSolved = false; // Tracks whether the puzzle is solved
+    public GameObject grabKeyMessage; // Reference to the "Grab Key" message GameObject
+    public GameObject keyObject; // Reference to the actual key GameObject
 
     void Awake()
     {
@@ -62,13 +64,29 @@ public class KeyAppearManager : MonoBehaviour
                 {
                     Debug.LogError("Hidden key child object not found under the parent!");
                 }
-                
+
                 // Activate the light (second child in the parent)
-                Transform lightObject = hiddenKeyParent.transform.GetChild(1); // Assuming the light is the second child
+                Transform lightObject = hiddenKeyParent.transform.GetChild(1); 
                 if (lightObject != null)
                 {
                     lightObject.gameObject.SetActive(true); // Make the light visible
                     Debug.Log("Light revealed in Living Room.");
+                }
+
+                // Activate the light (second child in the parent)
+                Transform PressEMessage = hiddenKeyParent.transform.GetChild(2); 
+                if (PressEMessage != null)
+                {
+                    PressEMessage.gameObject.SetActive(false); // Make the Press E message hidden
+                    Debug.Log("Press E message is hidden.");
+                }
+
+                // Activate the light (second child in the parent)
+                Transform GrabKey = hiddenKeyParent.transform.GetChild(3); 
+                if (GrabKey != null)
+                {
+                    GrabKey.gameObject.SetActive(true); // Make the Grabkey Message visible
+                    Debug.Log("GrabKey Message is visible.");
                 }
             }
             else
@@ -90,4 +108,5 @@ public class KeyAppearManager : MonoBehaviour
         // Unsubscribe to avoid memory leaks
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
+
 }
