@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HallwayScene.unity
     guid: 2cdcfa9094603884ea409f732734ff67
+  - enabled: 1
+    path: Assets/Scenes/EndGameScene.unity
+    guid: 2ee73c858a2829d4990e8f7643f248a7
+  - enabled: 1
+    path: Assets/Scenes/DeathScene.unity
+    guid: 19411e1230be4c24ebd95fe438aa2cbd
   m_configObjects: {}
