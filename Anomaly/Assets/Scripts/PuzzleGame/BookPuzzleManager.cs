@@ -86,6 +86,12 @@ public class BookPuzzleManager : MonoBehaviour
         {
             Debug.LogError("Key object is not assigned in the Inspector!");
         }
+
+         // Mark the puzzle as solved
+        if (KeyAppearManager.Instance != null)
+        {
+            KeyAppearManager.Instance.MarkPuzzleAsSolved();
+        }
         
         // Delay showing the message and button
         Invoke(nameof(ShowWinUI), 4f);
@@ -148,12 +154,7 @@ public class BookPuzzleManager : MonoBehaviour
         }
     }
 
-    public void SavePuzzleSolvedState()
-    {
-        // Save the puzzle solved state
-        PlayerPrefs.SetInt("PuzzleSolved", 1); // Mark puzzle as solved
-        PlayerPrefs.Save(); // Ensure the data is saved
-    }
+
 
      public void LoadLivingRoomScene()
     {

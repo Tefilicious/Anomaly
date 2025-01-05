@@ -5,23 +5,45 @@ using UnityEngine;
 
 public class KeyAppearManager : MonoBehaviour
 {
+    public static KeyAppearManager Instance { get; private set; }
+    public bool IsPuzzleSolved { get; private set; } = false; // Default: not solved
     public GameObject hiddenKey; // Drag and drop the hidden key GameObject here in the Inspector
+
+    void Awake()
+    {
+        // Ensure this object persists across scenes
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void MarkPuzzleAsSolved()
+    {
+        IsPuzzleSolved = true;
+    }
 
     void Start()
     {
-        // Check if the puzzle in the previous scene was solved
-        if (PlayerPrefs.GetInt("PuzzleSolved", 0) == 1) // Default is 0 (not solved)
+        // Hide the key at the start of the game
+        if (hiddenKey != null)
         {
-            if (hiddenKey != null)
-            {
-                hiddenKey.SetActive(true); // Make the key visible
-            }
-            else
-            {
-                Debug.LogError("Hidden key is not assigned in the Inspector!");
-            }
+            hiddenKey.SetActive(false);
         }
+    }
 
+    void OnSceneLoaded()
+    {
+        // Show the key if the puzzle is solved and we're in the Living Room scene
+        if (IsPuzzleSolved && hiddenKey != null)
+        {
+            hiddenKey.SetActive(true);
+        }
     }
 
 }
