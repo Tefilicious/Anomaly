@@ -1,50 +1,93 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.SceneManagement;
 public class KeyAppearManager : MonoBehaviour
 {
-    public static KeyAppearManager Instance { get; private set; }
-    public bool IsPuzzleSolved { get; private set; } = false; // Default: not solved
-    public GameObject hiddenKey; // Drag and drop the hidden key GameObject here in the Inspector
+    private static KeyAppearManager instance;
+
+    public static KeyAppearManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                Debug.LogError("KeyAppearManager instance is missing!");
+            }
+            return instance;
+        }
+    }
+
+    private bool puzzleSolved = false; // Tracks whether the puzzle is solved
 
     void Awake()
     {
-        // Ensure this object persists across scenes
-        if (Instance == null)
+        // Ensure only one instance of the manager exists
+        if (instance != null && instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(this.gameObject);
+            return;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
+        instance = this;
+        DontDestroyOnLoad(this.gameObject); // Persist across scenes
     }
 
     public void MarkPuzzleAsSolved()
     {
-        IsPuzzleSolved = true;
+        puzzleSolved = true;
+        Debug.Log("Puzzle solved state saved.");
     }
 
-    void Start()
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Hide the key at the start of the game
-        if (hiddenKey != null)
+        if (scene.name == "LivingRoomSceneV2" && puzzleSolved)
         {
-            hiddenKey.SetActive(false);
+            // Debugging: Log all objects with the 'HiddenKey' tag
+            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("HiddenKey");
+            foreach (var obj in allObjects)
+            {
+                Debug.Log($"Found object with tag 'HiddenKey': {obj.name}");
+            }
+            // Locate the parent GameObject with the tag "HiddenKey"
+            GameObject hiddenKeyParent = GameObject.FindWithTag("HiddenKey");
+            if (hiddenKeyParent != null)
+            {
+                // Activate the child key object
+                Transform hiddenKey = hiddenKeyParent.transform.GetChild(0); // Assumes the key is the first child
+                if (hiddenKey != null)
+                {
+                    hiddenKey.gameObject.SetActive(true); // Make the child key object visible
+                    Debug.Log($"Key revealed in Living Room. Parent: {hiddenKeyParent.name}, Child: {hiddenKey.name}");
+                }
+                else
+                {
+                    Debug.LogError("Hidden key child object not found under the parent!");
+                }
+                
+                // Activate the light (second child in the parent)
+                Transform lightObject = hiddenKeyParent.transform.GetChild(1); // Assuming the light is the second child
+                if (lightObject != null)
+                {
+                    lightObject.gameObject.SetActive(true); // Make the light visible
+                    Debug.Log("Light revealed in Living Room.");
+                }
+            }
+            else
+            {
+                Debug.LogError("HiddenKeyParent object not found! Ensure the parent GameObject is tagged as 'HiddenKey'.");
+            }
         }
     }
 
-    void OnSceneLoaded()
+
+    void OnEnable()
     {
-        // Show the key if the puzzle is solved and we're in the Living Room scene
-        if (IsPuzzleSolved && hiddenKey != null)
-        {
-            hiddenKey.SetActive(true);
-        }
+        // Subscribe to the scene loaded event
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    void OnDisable()
+    {
+        // Unsubscribe to avoid memory leaks
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }
-

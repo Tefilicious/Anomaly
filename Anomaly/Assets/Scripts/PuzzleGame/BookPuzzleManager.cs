@@ -89,7 +89,7 @@ public class BookPuzzleManager : MonoBehaviour
             Debug.LogError("Key object is not assigned in the Inspector!");
         }
 
-         // Mark the puzzle as solved
+        // Notify the KeyAppearManager that the puzzle has been solved
         if (KeyAppearManager.Instance != null)
         {
             KeyAppearManager.Instance.MarkPuzzleAsSolved();
