@@ -1680,7 +1680,7 @@ MonoBehaviour:
   keyObject: {fileID: 553364448}
   continueButton: {fileID: 486830726}
   HideBookKeys: {fileID: 288077429}
-  PlayButton: {fileID: 0}
+  PlayButton: {fileID: 1171060420}
 --- !u!1 &828367653
 GameObject:
   m_ObjectHideFlags: 0
