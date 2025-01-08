@@ -1,112 +1,50 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
+
 public class KeyAppearManager : MonoBehaviour
 {
-    private static KeyAppearManager instance;
-
-    public static KeyAppearManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                Debug.LogError("KeyAppearManager instance is missing!");
-            }
-            return instance;
-        }
-    }
-
-    private bool puzzleSolved = false; // Tracks whether the puzzle is solved
-    public GameObject grabKeyMessage; // Reference to the "Grab Key" message GameObject
-    public GameObject keyObject; // Reference to the actual key GameObject
+    public static KeyAppearManager Instance { get; private set; }
+    public bool IsPuzzleSolved { get; private set; } = false; // Default: not solved
+    public GameObject hiddenKey; // Drag and drop the hidden key GameObject here in the Inspector
 
     void Awake()
     {
-        // Ensure only one instance of the manager exists
-        if (instance != null && instance != this)
+        // Ensure this object persists across scenes
+        if (Instance == null)
         {
-            Destroy(this.gameObject);
-            return;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-
-        instance = this;
-        DontDestroyOnLoad(this.gameObject); // Persist across scenes
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void MarkPuzzleAsSolved()
     {
-        puzzleSolved = true;
-        Debug.Log("Puzzle solved state saved.");
+        IsPuzzleSolved = true;
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    void Start()
     {
-        if (scene.name == "LivingRoomSceneV2" && puzzleSolved)
+        // Hide the key at the start of the game
+        if (hiddenKey != null)
         {
-            // Debugging: Log all objects with the 'HiddenKey' tag
-            GameObject[] allObjects = GameObject.FindGameObjectsWithTag("HiddenKey");
-            foreach (var obj in allObjects)
-            {
-                Debug.Log($"Found object with tag 'HiddenKey': {obj.name}");
-            }
-            // Locate the parent GameObject with the tag "HiddenKey"
-            GameObject hiddenKeyParent = GameObject.FindWithTag("HiddenKey");
-            if (hiddenKeyParent != null)
-            {
-                // Activate the child key object
-                Transform hiddenKey = hiddenKeyParent.transform.GetChild(0); // Assumes the key is the first child
-                if (hiddenKey != null)
-                {
-                    hiddenKey.gameObject.SetActive(true); // Make the child key object visible
-                    Debug.Log($"Key revealed in Living Room. Parent: {hiddenKeyParent.name}, Child: {hiddenKey.name}");
-                }
-                else
-                {
-                    Debug.LogError("Hidden key child object not found under the parent!");
-                }
-
-                // Activate the light (second child in the parent)
-                Transform lightObject = hiddenKeyParent.transform.GetChild(1); 
-                if (lightObject != null)
-                {
-                    lightObject.gameObject.SetActive(true); // Make the light visible
-                    Debug.Log("Light revealed in Living Room.");
-                }
-
-                // Activate the light (second child in the parent)
-                Transform PressEMessage = hiddenKeyParent.transform.GetChild(2); 
-                if (PressEMessage != null)
-                {
-                    PressEMessage.gameObject.SetActive(false); // Make the Press E message hidden
-                    Debug.Log("Press E message is hidden.");
-                }
-
-                // Activate the light (second child in the parent)
-                Transform GrabKey = hiddenKeyParent.transform.GetChild(3); 
-                if (GrabKey != null)
-                {
-                    GrabKey.gameObject.SetActive(true); // Make the Grabkey Message visible
-                    Debug.Log("GrabKey Message is visible.");
-                }
-            }
-            else
-            {
-                Debug.LogError("HiddenKeyParent object not found! Ensure the parent GameObject is tagged as 'HiddenKey'.");
-            }
+            hiddenKey.SetActive(false);
         }
     }
 
-
-    void OnEnable()
+    void OnSceneLoaded()
     {
-        // Subscribe to the scene loaded event
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        // Unsubscribe to avoid memory leaks
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        // Show the key if the puzzle is solved and we're in the Living Room scene
+        if (IsPuzzleSolved && hiddenKey != null)
+        {
+            hiddenKey.SetActive(true);
+        }
     }
 
 }
+

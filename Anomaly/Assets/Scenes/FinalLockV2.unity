@@ -1117,10 +1117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c09f605f10405f43ab2bd2bba81ee01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
-  player: {fileID: 0}
-  anomaly: {fileID: 0}
-  keypadUI: {fileID: 0}
   inputSlots:
   - {fileID: 362859}
   - {fileID: 1184293651}
@@ -1565,7 +1561,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.21217544, y: 0.5268054}
   m_AnchorMax: {x: 0.36888072, y: 0.665}
-  m_AnchoredPosition: {x: 4.500183, y: -1}
+  m_AnchoredPosition: {x: 4.5001526, y: -1}
   m_SizeDelta: {x: 11, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &729195315
