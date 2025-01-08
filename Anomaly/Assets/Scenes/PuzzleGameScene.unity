@@ -1324,6 +1324,7 @@ MonoBehaviour:
   keyObject: {fileID: 0}
   continueButton: {fileID: 0}
   HideBookKeys: {fileID: 0}
+  PlayButton: {fileID: 0}
 --- !u!1 &764823475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1640,7 @@ MonoBehaviour:
   keyObject: {fileID: 553364448}
   continueButton: {fileID: 486830726}
   HideBookKeys: {fileID: 288077429}
+  PlayButton: {fileID: 1171060420}
 --- !u!4 &812562561
 Transform:
   m_ObjectHideFlags: 0
@@ -1678,6 +1680,7 @@ MonoBehaviour:
   keyObject: {fileID: 553364448}
   continueButton: {fileID: 486830726}
   HideBookKeys: {fileID: 288077429}
+  PlayButton: {fileID: 0}
 --- !u!1 &828367653
 GameObject:
   m_ObjectHideFlags: 0

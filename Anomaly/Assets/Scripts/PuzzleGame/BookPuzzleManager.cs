@@ -16,6 +16,7 @@ public class BookPuzzleManager : MonoBehaviour
     public GameObject continueButton; // UI Button to continue
     public GameObject HideBookKeys; // Parent GameObject containing the book key texts
     public static bool isPuzzleSolved;
+    public GameObject PlayButton;// used to hide the playbutton if lose.
 
     void Start()
     {
@@ -58,7 +59,7 @@ public class BookPuzzleManager : MonoBehaviour
                 {
                     Debug.Log("Game Over!");
                     ShowMessage("You lose! Try again");
-                    // Add game over logic here, e.g., reload scene or show main menu
+                    HidePlayButton();
                 }
             }
         }
@@ -157,6 +158,13 @@ public class BookPuzzleManager : MonoBehaviour
     }
 
 
+    public void HidePlayButton()
+    {
+        if (PlayButton != null)
+        {
+            PlayButton.SetActive(false);
+        }
+    }
 
      public void LoadLivingRoomScene()
     {
